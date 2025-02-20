@@ -1,9 +1,20 @@
-.header-toggle-button {
-  // this is not ideal, we usually don't want to mess
-  // with button padding...
-  // but the problem here is that the other header elements aren't buttons
-  // they are anchors...
-  .btn {
-    padding: 0;
+html {
+  &.force-light-mode {
+    --scheme-type: light !important;
+    color-scheme: light !important;
+    
+    // 強制的にライトモードの色を適用
+    --primary: var(--primary-low-light) !important;
+    --secondary: var(--secondary-low-light) !important;
+    --tertiary: var(--tertiary-low-light) !important;
+    --highlight: var(--highlight-low-light) !important;
+    --danger: var(--danger-low-light) !important;
+    --success: var(--success-low-light) !important;
+    --love: var(--love-low-light) !important;
   }
+}
+
+// ダークモード切り替えを無効化
+.dark-scheme {
+  display: none !important;
 }
