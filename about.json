@@ -1,6 +1,12 @@
 {
-  "name": "Dark-Light Toggle",
+  "name": "Discourse Color Scheme Toggle",
+  "about_url": "https://meta.discourse.org/t/discourse-color-scheme-toggle/",
+  "license_url": "https://github.com/discourse/discourse-color-scheme-toggle/blob/main/LICENSE",
   "component": true,
-  "about_url": "https://meta.discourse.org/t/dark-light-mode-toggle/215585",
-  "license_url": "https://github.com/discourse/discourse-color-scheme-toggle/blob/main/LICENSE"
+  "color_schemes": {
+    "Light": {
+      "primary": "var(--primary-low-light)",
+      "secondary": "var(--secondary-low-light)"
+    }
+  }
 }
