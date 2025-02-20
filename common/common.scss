@@ -1,20 +1,76 @@
-html {
-  &.force-light-mode {
-    --scheme-type: light !important;
-    color-scheme: light !important;
-    
-    // 強制的にライトモードの色を適用
-    --primary: var(--primary-low-light) !important;
-    --secondary: var(--secondary-low-light) !important;
-    --tertiary: var(--tertiary-low-light) !important;
-    --highlight: var(--highlight-low-light) !important;
-    --danger: var(--danger-low-light) !important;
-    --success: var(--success-low-light) !important;
-    --love: var(--love-low-light) !important;
+// 最上位での強制適用
+:root {
+  color-scheme: light !important;
+  forced-color-adjust: none !important;
+}
+
+body {
+  --scheme-type: light !important;
+  --color-scheme-preference: light !important;
+  
+  // 基本カラーの強制上書き
+  --primary: #222222 !important;
+  --secondary: #ffffff !important;
+  --tertiary: #0088cc !important;
+  --quaternary: #e45735 !important;
+  --header_background: #ffffff !important;
+  --header_primary: #222222 !important;
+}
+
+// トグルボタンの完全な除去
+.dark-scheme-toggle,
+.color-scheme-toggle,
+.theme-toggle-button,
+.dark-scheme {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+// 左下のトグルボタンを完全に削除
+#theme-toggle-dropdown,
+.theme-toggle-dropdown,
+.discourse-local-dates-create-modal-footer button,
+[data-key="theme-toggle"],
+[class*="theme-toggle"],
+.dark-light-switcher,
+#dark-light-switcher,
+.light-dark-switcher {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+// サイドバーやフッター領域のトグル関連要素も削除
+.sidebar-footer,
+.footer-nav {
+  .theme-switch,
+  .scheme-toggle,
+  [data-key="theme-toggle"],
+  [class*="theme-toggle"] {
+    display: none !important;
   }
 }
 
-// ダークモード切り替えを無効化
-.dark-scheme {
+// ユーザー設定からの色設定を無効化
+.user-preferences .color-scheme-choice,
+.user-preferences .dark-mode-toggle,
+.user-preferences .theme-settings {
   display: none !important;
+}
+
+// JavaScriptによる動的な変更を防ぐ
+html[data-theme],
+html[data-color-scheme],
+html[class*="scheme"] {
+  &, * {
+    color-scheme: light !important;
+    forced-color-adjust: none !important;
+  }
 }
