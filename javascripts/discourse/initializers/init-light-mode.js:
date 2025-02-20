@@ -1,0 +1,18 @@
+import { withPluginApi } from "discourse/lib/plugin-api";
+
+export default {
+  name: "init-light-mode",
+  initialize() {
+    withPluginApi("0.8.31", api => {
+      // 強制的にライトモードを設定
+      const setLightMode = () => {
+        document.documentElement.setAttribute("data-color-scheme", "light");
+        localStorage.setItem("color_scheme", "Light");
+      };
+
+      // 初期化時とログイン後に実行
+      setLightMode();
+      api.onPageChange(setLightMode);
+    });
+  }
+};
