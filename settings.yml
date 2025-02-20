@@ -1,8 +1,20 @@
-force_light_mode:
+enforce_light_mode:
   default: true
   type: bool
-  description: "Force light mode for all users"
   client: true
+  description: "Enforce light mode globally"
+
+disable_color_scheme_selection:
+  default: true
+  type: bool
+  client: true
+  description: "Disable all color scheme selections"
+
+remove_theme_toggle:
+  default: true
+  type: bool
+  client: true
+  description: "Remove theme toggle button"
 
 svg_icons:
   default: "moon|sun"
@@ -12,4 +24,3 @@ svg_icons:
 add_color_scheme_toggle_to_header:
   default: false
   type: bool
-  description: "Add color scheme toggle button to site header"
