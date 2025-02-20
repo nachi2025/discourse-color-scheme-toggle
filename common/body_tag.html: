@@ -1,0 +1,26 @@
+<script>
+(function() {
+  // DOM変更の監視
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      const nodes = mutation.addedNodes;
+      nodes.forEach(function(node) {
+        if (node.nodeType === 1) { // 要素ノードの場合
+          if (
+            node.matches('#theme-toggle-dropdown, .theme-toggle-dropdown, [data-key="theme-toggle"], .dark-light-switcher, #dark-light-switcher, .light-dark-switcher') ||
+            node.querySelector('#theme-toggle-dropdown, .theme-toggle-dropdown, [data-key="theme-toggle"], .dark-light-switcher, #dark-light-switcher, .light-dark-switcher')
+          ) {
+            node.remove();
+          }
+        }
+      });
+    });
+  });
+
+  // 監視の開始
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
+</script>
