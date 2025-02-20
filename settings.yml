@@ -1,26 +1,3 @@
-enforce_light_mode:
+force_light_mode:
   default: true
-  type: bool
   client: true
-  description: "Enforce light mode globally"
-
-disable_color_scheme_selection:
-  default: true
-  type: bool
-  client: true
-  description: "Disable all color scheme selections"
-
-remove_theme_toggle:
-  default: true
-  type: bool
-  client: true
-  description: "Remove theme toggle button"
-
-svg_icons:
-  default: "moon|sun"
-  type: "list"
-  list_type: "compact"
-
-add_color_scheme_toggle_to_header:
-  default: false
-  type: bool
