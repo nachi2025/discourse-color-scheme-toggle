@@ -1,0 +1,27 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // ローカルストレージのクリア
+  localStorage.removeItem('discourse_theme_id');
+  localStorage.removeItem('dark_scheme');
+  localStorage.removeItem('color_scheme_preference');
+  
+  // 強制的にライトモード設定
+  const enforceLight = function() {
+    document.documentElement.classList.remove('dark-scheme');
+    document.documentElement.classList.add('light-scheme');
+    document.documentElement.setAttribute('data-color-scheme', 'light');
+    document.documentElement.setAttribute('data-theme', 'light');
+  };
+
+  // 定期的に確認と強制適用
+  enforceLight();
+  setInterval(enforceLight, 1000);
+  
+  // 設定変更の監視と防止
+  const observer = new MutationObserver(enforceLight);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class', 'data-color-scheme', 'data-theme']
+  });
+});
+</script>
